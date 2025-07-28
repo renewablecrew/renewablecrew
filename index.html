@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RenewableCrew | Clean Energy Recruitment</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #f9f9f9;
+      color: #42435F;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 60vh;
+      min-height: 370px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background: #42435F;
+    }
+    .hero video {
+      object-fit: cover;
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 0;
+      filter: brightness(0.7) grayscale(0.15) blur(0.5px);
+    }
+    .hero-overlay {
+      z-index: 2;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+    }
+    .hero-logo {
+      width: 160px;
+      max-width: 30vw;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 6px 18px #2227);
+      animation: fadeInDown 1s ease;
+    }
+    .hero-title {
+      font-size: 2.7rem;
+      font-weight: bold;
+      color: #A8E46C;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 14px #42435F, 0 0px 24px #232;
+      animation: fadeInUp 1.1s 0.2s both;
+    }
+    .hero-tagline {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      color: #fff;
+      font-weight: 400;
+      background: rgba(66,67,95,0.40);
+      border-radius: 12px;
+      padding: 0.6rem 1.5rem;
+      max-width: 480px;
+      animation: fadeInUp 1.2s 0.6s both;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(32px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .section {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 2.5rem 1.5rem;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(66,67,95,.07);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s, transform 0.7s;
+      will-change: opacity, transform;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: #42435F;
+      font-size: 2rem;
+      margin-bottom: 1.1rem;
+      margin-top: 0;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    .values-list, .service-cards, .roles-cards, .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .values-list > div,
+    .service-cards > div,
+    .roles-cards > div,
+    .process-steps > div {
+      flex: 1 1 210px;
+      background: #f4f4fa;
+      border-radius: 9px;
+      padding: 1.3rem 1.1rem 1.2rem 1.1rem;
+      margin-bottom: 0.6rem;
+      box-shadow: 0 2px 8px rgba(66,67,95,0.08);
+      min-width: 185px;
+      min-height: 130px;
+      font-size: 1.07rem;
+      transition: transform 0.22s, box-shadow 0.22s;
+      text-align: left;
+      position: relative;
+    }
+    .service-cards > div:hover, .values-list > div:hover, .roles-cards > div:hover, .process-steps > div:hover {
+      box-shadow: 0 6px 36px rgba(66,67,95,0.15);
+      transform: translateY(-6px) scale(1.03);
+    }
+    .roles-cards ul {
+      margin: 0; padding: 0 0 0 1.2em;
+      list-style: disc;
+      font-size: 1.05rem;
+    }
+    .video-card {
+      margin: 2.5rem 0 1.2rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(66,67,95,0.10);
+      background: #f4f4fa;
+      text-align: center;
+      max-width: 900px;
+    }
+    .video-card video {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      background: #222;
+      border-bottom: 1px solid #A8E46C33;
+    }
+    .video-card p {
+      padding: 1rem 1.5rem 1.4rem 1.5rem;
+      color: #42435F;
+      font-size: 1.07rem;
+      margin: 0;
+    }
+    .closing {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin: 2rem 0 1rem 0;
+      background: #A8E46C;
+      border-radius: 14px;
+      color: #42435F;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      box-shadow: 0 1px 16px #B0FF8A33;
+      animation: fadeInUp 1.6s 0.3s both;
+    }
+    .large-logo {
+      width: 240px;
+      max-width: 38vw;
+      margin: 0 auto 2.5rem auto;
+      display: block;
+      filter: drop-shadow(0 9px 28px #232b);
+      animation: fadeInDown 1.6s 0.2s both;
+    }
+    footer {
+      text-align: center;
+      font-size: 1.05rem;
+      color: #888;
+      padding: 2rem 1rem 2.5rem 1rem;
+      margin-top: 2.3rem;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 920px) {
+      .values-list, .service-cards, .roles-cards, .process-steps { flex-direction: column; gap: 0.7rem; }
+      .section { margin: 1.4rem 0.1rem; padding: 1.1rem 0.5rem; }
+    }
+  </style>
+  <script>
+    // Animate sections on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      function reveal() {
+        var sections = document.querySelectorAll('.section');
+        var windowHeight = window.innerHeight;
+        for(var i = 0; i < sections.length; i++) {
+          var sectionTop = sections[i].getBoundingClientRect().top;
+          if(sectionTop < windowHeight - 80) {
+            sections[i].classList.add('visible');
+          }
+        }
+      }
+      window.addEventListener('scroll', reveal);
+      reveal();
+    });
+  </script>
+</head>
+<body>
+  <div class="hero">
+    <video src="https://player.vimeo.com/external/5442621.sd.mp4?s=41caa0e97b823b53768e0a2b2fc3b0a542aacdaf&profile_id=164" autoplay loop muted playsinline></video>
+    <div class="hero-overlay">
+      <img class="hero-logo" src="banner.png" alt="RenewableCrew Logo Banner">
+      <div class="hero-title">The Clean Energy Recruitment Crew</div>
+      <div class="hero-tagline">Specialist, confidential recruitment for clean energy & climate tech companies — U.S. and Europe focus. Your talent, your edge. <span style="color:#A8E46C">Zero noise.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <img class="large-logo" src="favicon.png" alt="RenewableCrew Logo Icon">
+    <h2>About RenewableCrew</h2>
+    <p>RenewableCrew is an independent recruitment partner for energy, renewables, and climate tech. We exist to help the most ambitious companies grow faster — without sacrificing confidentiality or quality. <b>From stealth mode to scale-up</b>, we support every stage of the talent journey.</p>
+    <p style="font-size:1.1rem; color:#A8E46C; font-weight:bold;">All search, all clean energy, all the time.</p>
+  </div>
+
+  <div class="section">
+    <h2>What We Do</h2>
+    <div class="service-cards">
+      <div><b>Confidential & Stealth Search</b><br>We recruit for unannounced, NDA-only, or competitive positions where anonymity is critical.</div>
+      <div><b>Executive, Commercial, and Product Roles</b><br>We fill strategic roles across leadership, go-to-market, product marketing, sales, operations, and grid innovation.</div>
+      <div><b>Energy Focus, Global Reach</b><br>Our network covers U.S. (PJM, ERCOT, NYISO, CAISO) and EU markets (UK, Ireland, France, Nordics, Spain).</div>
+      <div><b>Hands-On, No Middlemen</b><br>One partner from brief to placement. We build trust with candidates and keep your hiring private.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Why Choose Us?</h2>
+    <div class="values-list">
+      <div><b>Sector Insiders</b><br>10+ years recruiting for energy SaaS, DSR, grid services, and storage — not generalists.</div>
+      <div><b>Stealth-First</b><br>We keep every client and role anonymous, using NDAs and off-platform vetting. Zero leaks, zero noise.</div>
+      <div><b>Talent Mapping</b><br>We find & pre-vet the 2% who will change your business — not just the obvious crowd.</div>
+      <div><b>Modern Search</b><br>Smart outreach, ABM, and competitive analysis power our pipeline and deliver faster hires.</div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <video src="https://player.vimeo.com/external/5442623.sd.mp4?s=04bfa5de92b0b124003c8599f4e807b1ad19f677&profile_id=164" autoplay loop muted playsinline></video>
+    <p><b>Confidential recruitment means trust — for you and your future hires.</b> Our network reaches hidden, passive, and executive-level talent in the world's top energy firms, startups, and investors.</p>
+  </div>
+
+  <div class="section">
+    <h2>How We Work</h2>
+    <div class="process-steps">
+      <div><b>Brief & Discovery</b><br>Define requirements and design a discreet process with your team.</div>
+      <div><b>Target & Outreach</b><br>We map the market, approach pre-screened talent, and never advertise publicly.</div>
+      <div><b>Vetting & Shortlist</b><br>All interviews and references handled in-house; only the best fit move forward.</div>
+      <div><b>Secure Handover</b><br>We pass the shortlist to you securely, or host initial meetings on your behalf.</div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <video src="https://player.vimeo.com/external/5971459.sd.mp4?s=bc9d8ef5b869e7803cfb9c59a432158bb244dca5&profile_id=164" autoplay loop muted playsinline></video>
+    <p>Every placement is built on trust, discretion, and deep industry knowledge. We know your space because we recruit only for this space.</p>
+  </div>
+
+  <div class="section">
+    <h2>Example Roles We Fill</h2>
+    <div class="roles-cards">
+      <div>
+        <ul>
+          <li>VP Product Marketing, Energy SaaS</li>
+          <li>Director, Demand Gen / ABM</li>
+          <li>Head of DSR / Grid Optimization</li>
+          <li>GTM Director, Storage & Batteries</li>
+          <li>Regulatory Affairs Lead</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>Commercial Operations Lead</li>
+          <li>VP Sales, Smart Grid</li>
+          <li>Product Manager, Virtual Power Plant</li>
+          <li>Data & Market Analyst</li>
+          <li>Operations & Delivery Manager</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <video src="https://player.vimeo.com/external/3044864.sd.mp4?s=3e4d50590ae17e33df543d16b73a8e6c57eb320a&profile_id=164" autoplay loop muted playsinline></video>
+    <p>From startup to scaleup — and confidential market moves — our work is always about making your next step safer, stronger, and smarter.</p>
+  </div>
+
+  <div class="closing">
+    RenewableCrew: The recruitment partner for the new energy era. No hype, no spam, no distractions.<br>
+    <span style="font-size:1rem;font-weight:400;">Stealth. Discretion. Results.</span>
+  </div>
+  <footer>
+    <img src="favicon.png" alt="RenewableCrew logo icon" width="36" style="vertical-align:middle; margin-right:0.7rem;">
+    © 2025 RenewableCrew · Clean Energy & Climate Tech Recruitment
+  </footer>
+</body>
+</html>
